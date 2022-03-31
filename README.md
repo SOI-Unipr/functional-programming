@@ -19,3 +19,8 @@ successfully!
 3. Head to the code and implement the missing pieces.
 4. Repeat from step 2. until tests pass successfully.
 5. Feel free to add more tests to make sure all cases are covered.
+
+Tests are written using [MochaJS][1] and [ChaiJS][2].
+
+[1]: https://mochajs.org/
+[2]: https://www.chaijs.com/

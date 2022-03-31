@@ -13,7 +13,7 @@ export class Game {
      * @param {string} name The name of the game
      * @param {'CONSOLE'|'TABLETOP'|'OUTDOOR'} type Type of game
      * @param {number} year The production year
-     * @param {[number,number]} age Represents the allowed range of values for players.
+     * @param {[number,number]} age Represents the inclusive range of allowed ages.
      */
     constructor(name, type, year, age) {
         this.#name = name;
