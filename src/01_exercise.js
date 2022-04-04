@@ -6,6 +6,24 @@
  * and the average age.
  */
 export function averagePlayerAgePerGame(games, players) {
-    // TODO implement me!
-    return [];
+    function gameKey(game) {
+        return `${game.name}|${game.type}`;
+    }
+
+    const agesByGame = players
+        .flatMap(p => p.favouriteGames.map(g => ({game: g, age: p.age})))
+        .reduce((acc, gameAndAge) => {
+            const {game, age} = gameAndAge;
+            const key = gameKey(game);
+            (acc[key] = acc[key] || []).push(age);
+            return acc;
+        }, {});
+
+    return games.map(game => {
+        const key = gameKey(game);
+        const ages = agesByGame[key] || [];
+        const sumOfAges = ages.reduce((acc, age) => acc + age, 0);
+        const averageAge = ages.length? sumOfAges / ages.length : 0;
+        return {game, averageAge};
+    });
 }
